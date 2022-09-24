@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://dxin301.com/sitemap.xml
