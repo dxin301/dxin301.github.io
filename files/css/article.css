@@ -1,0 +1,118 @@
+@media (min-width: 900px) {
+  .main {
+    margin: 51px auto;
+    max-width: 1150px;
+    width: 90%;
+    background: #293841;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 71px;
+    cursor: default;
+    overflow: hidden;
+  }
+  body {
+    background: #002539;
+  }
+  .main > h1 {
+    font-size: 50px;
+    margin: 40px 70px 0px 70px;
+  }
+  #medium {
+    margin: 10px 0px -10px 70px;
+  }
+  .description {
+    font-size: 30px;
+    margin: 0px 70px;
+  }
+  #image {
+    max-width: 70%;
+  }
+  .content {
+    margin: 40px 70px 0px 70px;
+  }
+  .content > h2 {
+    font-size: 50px;
+  }
+}
+@media (max-width: 900px) {
+  body {
+    cursor: default;
+    background: #293841;
+  }
+  .main > h1 {
+    font-size: min(12vw, 50px);
+    margin: 5vh 3vw 0px 5vw;
+  }
+  #medium {
+    margin: 10px 0px -10px 5vw;
+  }
+  .description {
+    margin: 0px 5vw 0px 5vw;
+    font-size: 25px;
+  }
+  #image {
+    max-width: 90%
+  }
+  .content {
+    margin: 40px 7vw 0px 5vw;
+  }
+  .content > h2 {
+    font-size: 40px;
+  }
+}
+.main > h1{
+  font-family: Helvetica, Arial, sans-serif;
+  color: #ffffff;
+  font-weight: 500;
+}
+.description {
+  font-family: monospace;
+  font-weight: 400;
+  color: #01A024;
+}
+#image {
+  margin: 40px auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgb(47, 28, 28);
+}
+.content {
+  color: #fff0e8;
+}
+.content > h2 {
+  font-family: monospace;
+}
+.content > p {
+  font-family: sans-serif;
+  font-size: 25px;
+  text-indent: 20px;
+  line-height: 35px;
+}
+li {
+  font-family: sans-serif;
+  font-size: 25px;
+  text-indent: 20px;
+  line-height: 35px;
+}
+#medium {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  color: #8287d7;
+}
+#medium > span {
+  display: inline;
+  vertical-align: 8px;
+  font-family: serif;
+  font-weight: 500;
+  font-size: 20px;
+  margin-left: 7px;
+}
+#medium > img {
+  border-radius: 7px;
+}
+#medium:hover {
+  color: #eaf5ff;
+}
+a {
+  color: rgb(0, 0, 238);
+}
