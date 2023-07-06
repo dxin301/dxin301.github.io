@@ -26,10 +26,10 @@ async function run(){
   localStorage.setItem("isRun","1");
   while(localStorage.getItem("isRun")=="1") {
     await delay(1000);
-     var diff = Math.round((Date.now()-localStorage.getItem("startTime"))/1000);
-     var hour = Math.round(diff/3600);
+     var diff = Math.floor((Date.now()-localStorage.getItem("startTime"))/1000);
+     var hour = Math.floor(diff/3600);
      diff = diff-(hour*3600);
-     var minute = Math.round(diff/60);
+     var minute = Math.floor(diff/60);
      diff = diff-(minute*60);
      set(hour,minute,diff);
    }
@@ -46,7 +46,7 @@ async function stop(){
 <body>
 
 <div id="dclock">
-<div id="timer"><span id="h">00</span>:<span id="m">01</span>:<span id="s">22</span></div>
+<div id="timer"><span id="h">00</span>:<span id="m">00</span>:<span id="s">00</span></div>
 <form style="margin-top: 10px;">
 <input id="bstart" type="button" value="Start" onclick="run()">
 <!--<input id="bstop" type="button" value="Stop" onclick="">-->
