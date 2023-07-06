@@ -1,0 +1,62 @@
+<html lang="en"><head>
+<title>Online Stopwatch</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+body {
+  font-family: Arial, San-Serif;
+  font-size: 20px;
+}
+
+#dclock {text-align:center;color:#666;font-family: helvetica, arial, sans-serif;}
+#timer {font-size:4em;}
+form>input {font-size: 19px;}
+</style>
+<script type="text/javascript">
+  function delay(time) {
+  return new Promise(resolve => setTimeout(resolve, time));
+}
+function set(h,m,s) {
+  localStorage.setItem("last",h+":"+m+":"+s);
+  document.getElementById("timer").innerHTML = '<span id="h">' + h.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})+ '</span>:<span id="m">' + m.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})+ '</span>:<span id="s">' + s.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})+ '</span>';
+}
+localStorage.setItem("isRun","0");
+async function run(){
+  if(localStorage.getItem("startTime")==null) {localStorage.setItem("startTime",Date.now());}
+  localStorage.setItem("isRun","1");
+  while(localStorage.getItem("isRun")=="1") {
+    await delay(1000);
+     var diff = Math.round((Date.now()-localStorage.getItem("startTime"))/1000);
+     var hour = Math.round(diff/3600);
+     diff = diff-(hour*3600);
+     var minute = Math.round(diff/60);
+     diff = diff-(minute*60);
+     set(hour,minute,diff);
+   }
+}
+async function stop(){
+  localStorage.setItem("isRun","0");
+   document.getElementById('ce-snd').play();
+  await delay(1000);
+  localStorage.removeItem("startTime");
+  set(0,0,0);
+}
+</script>
+</head>
+<body>
+
+<div id="dclock">
+<div id="timer"><span id="h">00</span>:<span id="m">01</span>:<span id="s">22</span></div>
+<form style="margin-top: 10px;">
+<input id="bstart" type="button" value="Start" onclick="run()">
+<!--<input id="bstop" type="button" value="Stop" onclick="">-->
+<input id="breset" type="button" value="Reset" onclick="stop()">
+</form>
+
+<audio id="ce-snd" preload="auto">
+   <source src="https://beepmyclock.com/beep.mp3" type="audio/mpeg; codecs=&quot;mp3&quot;">
+   <source src="https://beepmyclock.com/beep.ogg" type="audio/ogg; codecs=&quot;vorbis&quot;">
+</audio>
+</div>
+</body>
+  </html>
